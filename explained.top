@@ -1,0 +1,5 @@
+Ch_freq - the frequency you want to mix, or you want to tune in
+bandwidht - the amount of data you want to see
+tuning - can be done be either changing the ch_freq or by multiplying. the tuned frequency is the difference between the two multiplied signals
+bandpass - if you want to remove side lobes in the negative frequencies, use complex taps
+
