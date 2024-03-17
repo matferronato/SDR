@@ -130,13 +130,13 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
-    type: complex
+    type: float
     waveform: analog.GR_SQR_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [215, 364]
+    coordinate: [119, 474]
     rotation: 0
     state: true
 - name: blocks_complex_to_mag_0
@@ -152,7 +152,23 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1010, 254]
+    coordinate: [772, 626]
+    rotation: 0
+    state: true
+- name: blocks_float_to_complex_0
+  id: blocks_float_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [364, 504]
     rotation: 0
     state: true
 - name: blocks_multiply_xx_0
@@ -262,7 +278,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [835, 159]
+    coordinate: [758, 296]
     rotation: 0
     state: true
 - name: qtgui_freq_sink_x_0
@@ -342,7 +358,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [866, 329]
+    coordinate: [534, 6]
     rotation: 0
     state: true
 - name: qtgui_freq_sink_x_0_0
@@ -422,7 +438,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [860, 732]
+    coordinate: [767, 489]
     rotation: 0
     state: true
 - name: qtgui_time_sink_x_0
@@ -519,7 +535,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [842, 60]
+    coordinate: [534, 148]
     rotation: 0
     state: true
 - name: qtgui_time_sink_x_0_0
@@ -616,7 +632,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [859, 595]
+    coordinate: [760, 381]
     rotation: 0
     state: true
 - name: qtgui_time_sink_x_0_1
@@ -673,7 +689,7 @@ blocks:
     marker8: '-1'
     marker9: '-1'
     name: 1_time_input
-    nconnections: '1'
+    nconnections: '2'
     size: '1024'
     srate: samp_rate
     stemplot: 'False'
@@ -713,7 +729,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1149, 126]
+    coordinate: [984, 830]
     rotation: 0
     state: true
 - name: tabs
@@ -755,9 +771,12 @@ connections:
 - [analog_sig_source_x_0, '0', blocks_multiply_xx_0, '0']
 - [analog_sig_source_x_0, '0', qtgui_freq_sink_x_0, '0']
 - [analog_sig_source_x_0, '0', qtgui_time_sink_x_0, '0']
-- [analog_sig_source_x_1, '0', blocks_multiply_xx_0, '1']
-- [analog_sig_source_x_1, '0', qtgui_time_sink_x_0, '1']
+- [analog_sig_source_x_1, '0', blocks_float_to_complex_0, '0']
+- [analog_sig_source_x_1, '0', blocks_float_to_complex_0, '1']
+- [analog_sig_source_x_1, '0', qtgui_time_sink_x_0_1, '1']
 - [blocks_complex_to_mag_0, '0', qtgui_time_sink_x_0_1, '0']
+- [blocks_float_to_complex_0, '0', blocks_multiply_xx_0, '1']
+- [blocks_float_to_complex_0, '0', qtgui_time_sink_x_0, '1']
 - [blocks_multiply_xx_0, '0', blocks_complex_to_mag_0, '0']
 - [blocks_multiply_xx_0, '0', qtgui_const_sink_x_0, '0']
 - [blocks_multiply_xx_0, '0', qtgui_freq_sink_x_0_0, '0']

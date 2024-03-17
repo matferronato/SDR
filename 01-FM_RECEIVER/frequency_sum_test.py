@@ -35,7 +35,7 @@ from gnuradio import eng_notation
 
 from gnuradio import qtgui
 
-class extra_test(gr.top_block, Qt.QWidget):
+class frequency_sum_test(gr.top_block, Qt.QWidget):
 
     def __init__(self):
         gr.top_block.__init__(self, "Not titled yet")
@@ -58,7 +58,7 @@ class extra_test(gr.top_block, Qt.QWidget):
         self.top_grid_layout = Qt.QGridLayout()
         self.top_layout.addLayout(self.top_grid_layout)
 
-        self.settings = Qt.QSettings("GNU Radio", "extra_test")
+        self.settings = Qt.QSettings("GNU Radio", "frequency_sum_test")
 
         try:
             if StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
@@ -131,7 +131,7 @@ class extra_test(gr.top_block, Qt.QWidget):
 
 
     def closeEvent(self, event):
-        self.settings = Qt.QSettings("GNU Radio", "extra_test")
+        self.settings = Qt.QSettings("GNU Radio", "frequency_sum_test")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
@@ -148,7 +148,7 @@ class extra_test(gr.top_block, Qt.QWidget):
 
 
 
-def main(top_block_cls=extra_test, options=None):
+def main(top_block_cls=frequency_sum_test, options=None):
 
     if StrictVersion("4.5.0") <= StrictVersion(Qt.qVersion()) < StrictVersion("5.0.0"):
         style = gr.prefs().get_string('qtgui', 'style', 'raster')
